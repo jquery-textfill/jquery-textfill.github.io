@@ -1,4 +1,9 @@
 /**
+ * This file specifies rules for the `gulp` tool.
+ * With it we can have a completely automated workflow for webdev.
+ *
+ * $ gulp          # run all tasks (clean, optimize, etc)
+ * $ gulp serve    # serves `dist` and refreshes page in case of changes
  *
  *  Web Starter Kit
  *  Copyright 2014 Google Inc. All rights reserved.
