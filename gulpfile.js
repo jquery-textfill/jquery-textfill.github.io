@@ -47,7 +47,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // Lint JavaScript
 gulp.task('jshint', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/js/**/*.js')
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -81,44 +81,30 @@ gulp.task('fonts', function () {
 
 
 // Automatically Prefix CSS
-gulp.task('styles:css', function () {
-  return gulp.src('app/styles/**/*.css')
-    .pipe($.changed('app/styles'))
+gulp.task('css:css', function () {
+  return gulp.src('app/css/**/*.css')
+    .pipe($.changed('app/css'))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('app/styles'))
-    .pipe($.size({title: 'styles:css'}));
+    .pipe(gulp.dest('app/css'))
+    .pipe($.size({title: 'css:css'}));
 });
 
-// Compile Sass For Style Guide Components (app/styles/components)
-gulp.task('styles:components', function () {
-  return gulp.src('app/styles/components/components.scss')
+// Compile Any Other Sass Files You Added (app/css)
+gulp.task('css:scss', function () {
+  return gulp.src(['app/css/**/*.scss'])
     .pipe($.rubySass({
       style: 'expanded',
       precision: 10,
-      loadPath: ['app/styles/components']
+      loadPath: ['app/css']
     }))
     .on('error', console.error.bind(console))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('app/styles/components'))
-    .pipe($.size({title: 'styles:components'}));
-});
-
-// Compile Any Other Sass Files You Added (app/styles)
-gulp.task('styles:scss', function () {
-  return gulp.src(['app/styles/**/*.scss', '!app/styles/components/components.scss'])
-    .pipe($.rubySass({
-      style: 'expanded',
-      precision: 10,
-      loadPath: ['app/styles']
-    }))
-    .on('error', console.error.bind(console))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe($.size({title: 'styles:scss'}));
+    .pipe(gulp.dest('.tmp/css'))
+    .pipe($.size({title: 'css:scss'}));
 });
 
 // Output Final CSS Styles
-gulp.task('styles', ['styles:components', 'styles:scss', 'styles:css']);
+gulp.task('css', ['css:scss', 'css:css']);
 
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function () {
@@ -144,8 +130,6 @@ gulp.task('html', function () {
     .pipe($.if('*.css', $.csso()))
     .pipe($.useref.restore())
     .pipe($.useref())
-    // Update Production Style Guide Paths
-    .pipe($.replace('components/components.css', 'components/main.min.css'))
     // Minify Any HTML
     .pipe($.if('*.html', $.minifyHtml()))
     // Output Files
@@ -166,9 +150,9 @@ gulp.task('serve', function () {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.scss'], ['styles:components', 'styles:scss']);
-  gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+  gulp.watch(['app/css/**/*.scss'], ['css:scss']);
+  gulp.watch(['{.tmp,app}/css/**/*.css'], ['css:css', reload]);
+  gulp.watch(['app/js/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
 });
 
@@ -184,7 +168,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
+  runSequence('css', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
