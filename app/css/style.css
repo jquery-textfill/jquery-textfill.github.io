@@ -33,7 +33,7 @@
 		color: #666;
 		line-height: 1.5em;
 	}
-	
+
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
 		{
 			color: inherit;
@@ -44,18 +44,18 @@
 		{
 			font-weight: 300;
 		}
-		
+
 		h2
 		{
 			font-size: 2em;
 			letter-spacing: -1px;
 		}
-		
+
 			h2.alt
 			{
 				color: #888;
 			}
-			
+
 			h2.alt strong
 			{
 				color: #666;
@@ -81,7 +81,7 @@
 		font-weight: 300;
 		color: #666;
 	}
-	
+
 	em, i
 	{
 		font-style: italic;
@@ -112,27 +112,27 @@
 		top: 0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	sup
 	{
 		position: relative;
 		top: -0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	hr
 	{
 		border: 0;
 		border-top: solid 1px #ddd;
 	}
-	
+
 	blockquote
 	{
 		border-left: solid 0.5em #ddd;
 		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
-	
+
 	p, ul, ol, dl, table
 	{
 		margin-bottom: 2em;
@@ -144,13 +144,13 @@
 	}
 
 	/* Sections/Articles */
-	
+
 		section,
 		article
 		{
 			margin-bottom: 3em;
 		}
-		
+
 		section > :last-child,
 		article > :last-child,
 		section > .container > :last-child,
@@ -178,20 +178,20 @@
 			display: inline-block;
 			border: 0;
 		}
-		
+
 			.image img
 			{
 				display: block;
 				width: 100%;
 			}
-			
+
 			.image.avatar48
 			{
 				width: 48px;
 				height: 48px;
 				background: #f00;
 			}
-			
+
 				.image.avatar48 img
 				{
 					width: 48px;
@@ -203,20 +203,20 @@
 				display: block;
 				width: 100%;
 			}
-			
+
 			.image.featured
 			{
 				display: block;
 				width: 100%;
 				margin: 0 0 2em 0;
 			}
-			
+
 			.image.left
 			{
 				float: left;
 				margin: 0 2em 2em 0;
 			}
-			
+
 			.image.centered
 			{
 				display: block;
@@ -236,22 +236,22 @@
 			list-style: disc;
 			padding-left: 1em;
 		}
-		
+
 			ul.default li
 			{
 				padding-left: 0.5em;
-			}		
+			}
 
 		ul.icons
 		{
 			cursor: default;
-		}	
-		
+		}
+
 			ul.icons li
 			{
 				display: inline-block;
 			}
-			
+
 				ul.icons a
 				{
 					display: inline-block;
@@ -266,7 +266,7 @@
 		{
 			cursor: default;
 		}
-		
+
 			ul.menu li
 			{
 				display: inline-block;
@@ -275,7 +275,7 @@
 				padding: 0 0 0 0.5em;
 				margin: 0 0 0 0.5em;
 			}
-			
+
 			ul.menu li:first-child
 			{
 				border-left: 0;
@@ -299,14 +299,14 @@
 		form
 		{
 		}
-		
+
 			form label
 			{
 				display: block;
 				text-align: left;
 				margin-bottom: 0.5em;
 			}
-		
+
 			form input.text,
 			form select,
 			form textarea
@@ -342,7 +342,7 @@
 					box-shadow: 0 0 2px 1px #8ededc;
 					background: #fff;
 				}
-				
+
 				form textarea
 				{
 					min-height: 14em;
@@ -377,30 +377,30 @@
 				{
 					border: 0;
 				}
-			
+
 	/* Tables */
-	
+
 		table
 		{
 			width: 100%;
 		}
-		
+
 			table.default
 			{
 				width: 100%;
 				text-align: left;
 			}
-			
+
 				table.default tbody tr:nth-child(2n+2)
 				{
 					background: #f4f4f4;
 				}
-				
+
 				table.default td
 				{
 					padding: 0.5em 1em 0.5em 1em;
 				}
-				
+
 				table.default th
 				{
 					text-align: left;
@@ -408,24 +408,24 @@
 					color: #fff;
 					background: #222729 url('images/overlay.png');
 				}
-			
+
 				table.default thead
 				{
 					background: #444;
 					color: #fff;
 				}
-				
+
 				table.default tfoot
 				{
 					background: #eee;
 				}
-				
+
 				table.default tbody
 				{
 				}
 
 	/* Buttons */
-		
+
 		.button
 		{
 			position: relative;
@@ -441,7 +441,7 @@
 			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url('images/overlay.png');
 			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url('images/overlay.png');
 			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url('images/overlay.png');
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url('images/overlay.png');			
+			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url('images/overlay.png');
 			-moz-transition: background-color 0.35s ease-in-out;
 			-webkit-transition: background-color 0.35s ease-in-out;
 			-o-transition: background-color 0.35s ease-in-out;
@@ -453,20 +453,20 @@
 			{
 				background-color: #9ececc;
 			}
-			
+
 			.button:active
 			{
 				background-color: #7eaeac;
 			}
-		
+
 	/* Item */
-	
+
 		.item
 		{
 			box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05);
 			margin-bottom: 40px;
 		}
-		
+
 			.item header
 			{
 				background: #fff;
@@ -494,7 +494,7 @@
 		.fa.solo
 		{
 		}
-		
+
 			.fa.solo span
 			{
 				display: none;
@@ -911,20 +911,20 @@
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
-	
+
 	#header
 	{
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 375px;
+		width: 200px;
 		height: 100%;
 		color: #fff;
 		background: #222729 url('images/overlay.png');
 		box-shadow: inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125);
 		text-align: right;
 	}
-	
+
 		#header .top
 		{
 			position: absolute;
@@ -932,7 +932,7 @@
 			top: 0;
 			width: 100%;
 		}
-	
+
 		#header .bottom
 		{
 			position: absolute;
@@ -947,7 +947,7 @@
 			margin: 0 0 1em 0;
 			text-align: center;
 		}
-		
+
 			#header .icons a
 			{
 				color: #41484c;
@@ -957,7 +957,7 @@
 				-ms-transition: color 0.35s ease-in-out;
 				transition: color 0.35s ease-in-out;
 			}
-			
+
 				#header .icons a:hover
 				{
 					color: #fff;
@@ -970,7 +970,7 @@
 		min-height: 48px;
 		cursor: default;
 	}
-	
+
 		#logo h1
 		{
 			position: relative;
@@ -979,7 +979,7 @@
 			font-size: 1em;
 			line-height: 1em;
 		}
-	
+
 		#logo .byline
 		{
 			position: relative;
@@ -989,26 +989,26 @@
 			line-height: 1.25em;
 			margin: 0.5em 0 0 0;
 		}
-		
+
 		#logo .image
 		{
 			position: absolute;
 			left: 0;
 			top: 0;
 		}
-	
+
 	#nav
 	{
 	}
-	
+
 		#nav ul
 		{
 		}
-		
+
 			#nav ul li
 			{
 			}
-			
+
 				#nav ul li a
 				{
 					display: block;
@@ -1023,14 +1023,14 @@
 					-ms-transition: none;
 					transition: none;
 				}
-				
+
 					#nav ul li a span
 					{
 						position: relative;
 						display: block;
 						font-size: 0.8em;
 					}
-					
+
 						#nav ul li a span:before
 						{
 							position: absolute;
@@ -1060,7 +1060,7 @@
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
-	
+
 	#footer
 	{
 		margin-left: 375px;
@@ -1075,7 +1075,7 @@
 		{
 			line-height: 1.25em;
 		}
-		
+
 			#footer .copyright p
 			{
 				margin: 0 0 1em 0;
@@ -1094,7 +1094,7 @@
 	{
 		margin-left: 375px;
 	}
-	
+
 		#main > section
 		{
 			margin: 0;
@@ -1104,28 +1104,28 @@
 			text-align: center;
 			background-image: url('images/overlay.png');
 		}
-	
+
 		#main > section.one
 		{
 			background: #fff;
 			padding-top: 0;
 		}
-	
+
 			#main > section.one .image.featured
 			{
 				margin-bottom: 3em;
 			}
-	
+
 		#main > section.two
 		{
 			background-color: #f5fafa;
 		}
-	
+
 		#main > section.three
 		{
 			background-color: #ecf1f1;
 		}
-	
+
 		#main > section.four
 		{
 			background-color: #e8edec;
