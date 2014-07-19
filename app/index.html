@@ -15,6 +15,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/skel.min.js"></script>
 	<script src="js/skel-panels.min.js"></script>
+	<script src="js/highlight.pack.js"></script>
 	<script src="js/jquery.textfill.js"></script>
 	<script src="js/textfill-init.js"></script>
 	<script src="js/init.js"></script>
@@ -26,6 +27,7 @@
 	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 
+	<link rel="stylesheet" href="css/hilite/tomorrow.css" />
 	<link rel="stylesheet" href="css/textfill-style.css" />
   </head>
   <body>
@@ -159,58 +161,59 @@
 		<div class="container">
 
 		  <header>
-			<h2>Portfolio</h2>
+			<h2>how to use</h2>
 		  </header>
-
-		  <p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
-			egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
-			Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
-			fusce hendrerit lacus ridiculus.</p>
 
 		  <div class="row">
 			<div class="4u">
 			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/A-million-suns-384369739" class="image full"><img src="images/pic02.jpg" alt="" /></a>
-				<header>
-				  <h3>Ipsum Feugiat</h3>
-				</header>
-			  </article>
-			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/Mind-is-a-clear-stage-375431607" class="image full"><img src="images/pic03.jpg" alt="" /></a>
-				<header>
-				  <h3>Rhoncus Semper</h3>
-				</header>
+				<h3>include jQuery and myself</h3>
 			  </article>
 			</div>
-			<div class="4u">
+			<div class="8u">
 			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/You-really-got-me-345249340" class="image full"><img src="images/pic04.jpg" alt="" /></a>
-				<header>
-				  <h3>Magna Nullam</h3>
-				</header>
-			  </article>
-			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/Ad-infinitum-354203162" class="image full"><img src="images/pic05.jpg" alt="" /></a>
-				<header>
-				  <h3>Natoque Vitae</h3>
-				</header>
-			  </article>
-			</div>
-			<div class="4u">
-			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/Elysium-355393900" class="image full"><img src="images/pic06.jpg" alt="" /></a>
-				<header>
-				  <h3>Dolor Penatibus</h3>
-				</header>
-			  </article>
-			  <article class="item">
-				<a href="http://ineedchemicalx.deviantart.com/art/Emperor-of-the-Stars-370265193" class="image full"><img src="images/pic07.jpg" alt="" /></a>
-				<header>
-				  <h3>Orci Convallis</h3>
-				</header>
+				<pre><code class="html">&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.textfill.min.js"&gt;&lt;/script&gt;</code></pre>
 			  </article>
 			</div>
 		  </div>
+
+		  <div class="row">
+			<div class="4u">
+			  <article class="item">
+				<h3>mark the element I'll expand</h3>
+			  </article>
+			</div>
+			<div class="8u">
+			  <article class="item">
+				<pre><code class="html">&lt;div id="my-element" style="width:100px; height:50px;"&gt;
+    &lt;span&gt;My awesome text!&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+			  <p>
+				Note: make sure to put the text inside of a child <strong>span</strong> and <br />
+				specify the parent's width and height
+			  </p>
+			  </article>
+			</div>
+
+		  </div>
+
+		  <div class="row">
+			<div class="4u">
+			  <article class="item">
+				<h3>initialize me</h3>
+			  </article>
+			</div>
+			<div class="8u">
+			  <article class="item">
+				<pre><code class="javascript">$('#my-element').textfill({
+    ...options...
+});</code></pre>
+			  </article>
+			</div>
+		  </div>
+
+
 
 		</div>
 	  </section>
@@ -220,17 +223,68 @@
 		<div class="container">
 
 		  <header>
-			<h2>About Me</h2>
+			<h2>options</h2>
 		  </header>
 
-		  <a href="http://ineedchemicalx.deviantart.com/art/Pasadena-357650036" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+		  <!-- <p>Interesting, right?</p> -->
 
-		  <p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-			ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-			laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-			parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-			dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-			ornare iaculis.</p>
+		  <table class="default">
+			<thead>
+			  <tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Default</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td><em><strong>minFontPixels</strong></em></td>
+				<td>Minimal font size (in pixels)</td>
+				<td><strong>4</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>maxFontPixels</strong></em></td>
+				<td>
+				  Maximum font size the text <em>could</em> resize (in
+				  pixels). For <strong>size <= 0</strong>, the text is sized to
+				  as big as the container can accommodate.
+                </td>
+				<td><strong>40</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>innerTag</strong></em></td>
+				<td>
+				  The child element tag to resize.
+				</td>
+				<td>span</td>
+			  </tr>
+			  <tr>
+				<td><em><strong>widthOnly</strong></em></td>
+				<td>only resizing for width restraint</td>
+				<td><strong>false</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>explicitWidth</strong></em></td>
+				<td>explicit width</td>
+				<td><strong>null</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>explicitHeight</strong></em></td>
+				<td>explicit height</td>
+				<td><strong>null</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>debug</strong></em></td>
+				<td>Output debugging messages to console</td>
+				<td><strong>false</strong></td>
+			  </tr>
+			  <tr>
+				<td><em>minFontPixels</em></td>
+				<td>Minimal font size (in pixels)</td>
+				<td>4</td>
+			  </tr>
+			</tbody>
+		  </table>
 
 		</div>
 	  </section>
@@ -240,30 +294,35 @@
 		<div class="container">
 
 		  <header>
-			<h2>Contact</h2>
+			<h2>callbacks</h2>
 		  </header>
 
-		  <p>Elementum sem parturient nulla quam placerat viverra
-			mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-			donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-			orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
-		  <form method="post" action="#">
-			<div class="row half">
-			  <div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
-			  <div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
-			</div>
-			<div class="row half">
-			  <div class="12u">
-				<textarea name="message" placeholder="Message"></textarea>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="12u">
-				<a href="#" class="button submit">Send Message</a>
-			  </div>
-			</div>
-		  </form>
+		  <table class="default">
+			<thead>
+			  <tr>
+				<th>name</th>
+				<th>called when...</th>
+				<th>default</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td><em><strong>success</strong></em></td>
+				<td>...resizing is successful</td>
+				<td><strong>null</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>fail</strong></em></td>
+				<td>...resizing just failed</td>
+				<td><strong>null</strong></td>
+			  </tr>
+			  <tr>
+				<td><em><strong>complete</strong></em></td>
+				<td>...resizing finished</td>
+				<td>null</td>
+			  </tr>
+			</tbody>
+		  </table>
 
 		</div>
 	  </section>
@@ -275,7 +334,7 @@
 
 	  <!-- Copyright -->
 	  <div class="copyright">
-		<p>&copy; 2013 Jane Doe. All rights reserved.</p>
+		<p>&copy; 2014 Alexandre Dantas.</p>
 		<ul class="menu">
 		  <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>

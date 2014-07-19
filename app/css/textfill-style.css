@@ -70,7 +70,7 @@
  * Subsection Two
  */
 #subsection-two {
-	padding-top: 20px;
+	padding-top: 4em;
 }
 
 .float-half {
@@ -155,5 +155,35 @@
 	background-image:-ms-linear-gradient(top, #3EACBA, #48C6D4);
 	background-image:-o-linear-gradient(top, #3EACBA, #48C6D4);
 	background-image:linear-gradient(top, #3EACBA, #48C6D4);
+}
+
+
+
+
+
+
+
+
+
+/* the texts inside the ARTICLES */
+article {
+	margin-left: 2em;
+	background-color: #fff;
+}
+article pre {
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+.row p {
+	margin: 0;
+	font-size: 90%;
+	background-color: rgb(242, 242, 242)
 }
 

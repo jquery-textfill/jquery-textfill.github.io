@@ -30,5 +30,25 @@
 	}
 	$('#example-one-input').keyup(firstExampleUpdate);
 	firstExampleUpdate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// Initializing Highlight.js
+	hljs.initHighlightingOnLoad();
 }));
 
