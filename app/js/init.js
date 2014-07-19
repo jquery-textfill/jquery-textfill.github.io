@@ -62,9 +62,9 @@
 
 	// formerize
 		jQuery.fn.n33_formerize=function(){var _fakes=new Array(),_form = jQuery(this);_form.find('input[type=text],textarea').each(function() { var e = jQuery(this); if (e.val() == '' || e.val() == e.attr('placeholder')) { e.addClass('formerize-placeholder'); e.val(e.attr('placeholder')); } }).blur(function() { var e = jQuery(this); if (e.attr('name').match(/_fakeformerizefield$/)) return; if (e.val() == '') { e.addClass('formerize-placeholder'); e.val(e.attr('placeholder')); } }).focus(function() { var e = jQuery(this); if (e.attr('name').match(/_fakeformerizefield$/)) return; if (e.val() == e.attr('placeholder')) { e.removeClass('formerize-placeholder'); e.val(''); } }); _form.find('input[type=password]').each(function() { var e = jQuery(this); var x = jQuery(jQuery('<div>').append(e.clone()).remove().html().replace(/type="password"/i, 'type="text"').replace(/type=password/i, 'type=text')); if (e.attr('id') != '') x.attr('id', e.attr('id') + '_fakeformerizefield'); if (e.attr('name') != '') x.attr('name', e.attr('name') + '_fakeformerizefield'); x.addClass('formerize-placeholder').val(x.attr('placeholder')).insertAfter(e); if (e.val() == '') e.hide(); else x.hide(); e.blur(function(event) { event.preventDefault(); var e = jQuery(this); var x = e.parent().find('input[name=' + e.attr('name') + '_fakeformerizefield]'); if (e.val() == '') { e.hide(); x.show(); } }); x.focus(function(event) { event.preventDefault(); var x = jQuery(this); var e = x.parent().find('input[name=' + x.attr('name').replace('_fakeformerizefield', '') + ']'); x.hide(); e.show().focus(); }); x.keypress(function(event) { event.preventDefault(); x.val(''); }); });  _form.submit(function() { jQuery(this).find('input[type=text],input[type=password],textarea').each(function(event) { var e = jQuery(this); if (e.attr('name').match(/_fakeformerizefield$/)) e.attr('name', ''); if (e.val() == e.attr('placeholder')) { e.removeClass('formerize-placeholder'); e.val(''); } }); }).bind("reset", function(event) { event.preventDefault(); jQuery(this).find('select').val(jQuery('option:first').val()); jQuery(this).find('input,textarea').each(function() { var e = jQuery(this); var x; e.removeClass('formerize-placeholder'); switch (this.type) { case 'submit': case 'reset': break; case 'password': e.val(e.attr('defaultValue')); x = e.parent().find('input[name=' + e.attr('name') + '_fakeformerizefield]'); if (e.val() == '') { e.hide(); x.show(); } else { e.show(); x.hide(); } break; case 'checkbox': case 'radio': e.attr('checked', e.attr('defaultValue')); break; case 'text': case 'textarea': e.val(e.attr('defaultValue')); if (e.val() == '') { e.addClass('formerize-placeholder'); e.val(e.attr('placeholder')); } break; default: e.val(e.attr('defaultValue')); break; } }); window.setTimeout(function() { for (x in _fakes) _fakes[x].trigger('formerize_sync'); }, 10); }); return _form; };
-	
+
 	// scrolly
-		jQuery.fn.n33_scrolly = function() {			
+		jQuery.fn.n33_scrolly = function() {
 			var bh = jQuery('body,html'), t = jQuery(this);
 
 			t.click(function(e) {
@@ -79,7 +79,7 @@
 						.animate({ scrollTop: pos }, 'slow', 'swing');
 				}
 			});
-			
+
 			return t;
 		};
 
@@ -87,7 +87,7 @@
 		jQuery.n33_scrollzer = function(ids, userSettings) {
 
 			var top = jQuery(window), doc = jQuery(document);
-			
+
 			top.load(function() {
 
 				// Settings
@@ -108,11 +108,11 @@
 					{
 						o = jQuery('#' + ids[k]);
 						l = jQuery('#' + ids[k] + settings.suffix);
-					
+
 						if (o.length < 1
 						||	l.length < 1)
 							continue;
-						
+
 						x = {};
 						x.link = l;
 						x.object = o;
@@ -123,17 +123,17 @@
 				// Resize event (calculates start/end values for each element)
 					var resizeTimerId, resizeFunc = function() {
 						var x;
-						
+
 						for (k in elements)
 						{
 							x = elements[k];
 							x.start = Math.ceil(x.object.offset().top) - settings.pad;
 							x.end = x.start + Math.ceil(x.object.innerHeight());
 						}
-						
+
 						top.trigger('scroll');
 					};
-					
+
 					top.resize(function() {
 						window.clearTimeout(resizeTimerId);
 						resizeTimerId = window.setTimeout(resizeFunc, 250);
@@ -143,14 +143,14 @@
 					var scrollTimerId, scrollFunc = function() {
 						links.removeClass('scrollzer-locked');
 					};
-				
+
 					top.scroll(function(e) {
 						var i = 0, h, found = false;
 						pos = top.scrollTop();
 
 						window.clearTimeout(scrollTimerId);
 						scrollTimerId = window.setTimeout(scrollFunc, 250);
-						
+
 						// Step through elements
 							for (k in elements)
 							{
@@ -161,10 +161,10 @@
 									lastId = k;
 									found = true;
 								}
-								
+
 								i++;
 							}
-							
+
 						// If we're using lastHack ...
 							if (settings.lastHack
 							&&	pos + top.height() >= doc.height())
@@ -172,7 +172,7 @@
 								lastId = k;
 								found = true;
 							}
-							
+
 						// If we found one ...
 							if (found
 							&&	!links.hasClass('scrollzer-locked'))
@@ -181,7 +181,7 @@
 								elements[lastId].link.addClass(settings.activeClassName);
 							}
 					});
-					
+
 				// Initial trigger
 					top.trigger('resize');
 
@@ -199,7 +199,7 @@
 			// Add input "placeholder" support to IE <= 9
 				if (_IEVersion < 10)
 					$('form').n33_formerize();
-					
+
 			// Submit
 				jQuery('form .button.submit').click(function(e) {
 					e.preventDefault();
@@ -207,24 +207,24 @@
 				});
 
 		// Initialize events
-		
+
 			// Load
 				$window.load(function() {
-			
+
 					skel.onStateChange(function() {
-					
+
 						window.setTimeout(function() {
 							var fi = jQuery('.image.featured');
-						
+
 							// If we're mobile, do image alignment fix
 								if (skel.isActive('mobile'))
 									fi.each(function() { var img = jQuery(this).children('img'); img.css('left', '50%').css('margin-left', -1 * (img.width() / 2)); });
 							// Otherwise, remove the fix if it was applied previously
 								else
 									fi.each(function() { jQuery(this).children('img').css('left', 0).css('margin-left', 0); });
-									
+
 						}, 100);
-					
+
 					});
 
 				});
@@ -234,7 +234,7 @@
 
 		// Initialize nav
 			var $nav_a = jQuery('#nav a');
-			
+
 			// Scrollyfy links
 				$nav_a
 					.n33_scrolly()
@@ -242,36 +242,37 @@
 
 						var t = jQuery(this),
 							href = t.attr('href');
-						
+
 						if (href[0] != '#')
 							return;
-						
+
 						e.preventDefault();
-						
+
 						// Clear active and lock scrollzer until scrolling has stopped
 							$nav_a
 								.removeClass('active')
 								.addClass('scrollzer-locked');
-					
+
 						// Set this link to active
 							t.addClass('active');
-					
+
 					});
 
 			// Initialize scrollzer
 				var ids = [];
-				
+
 				$nav_a.each(function() {
-					
+
 					var href = jQuery(this).attr('href');
-					
+
 					if (href[0] != '#')
 						return;
-				
+
 					ids.push(href.substring(1));
-				
+
 				});
-				
+
 				jQuery.n33_scrollzer(ids, { pad: 200, lastHack: true });
 
 	});
+

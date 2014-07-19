@@ -6,7 +6,7 @@
   -->
 <html>
   <head>
-	<title>Prologue by HTML5 UP</title>
+	<title>TextFill</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -15,6 +15,8 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/skel.min.js"></script>
 	<script src="js/skel-panels.min.js"></script>
+	<script src="js/jquery.textfill.js"></script>
+	<script src="js/textfill-init.js"></script>
 	<script src="js/init.js"></script>
 	<noscript>
 	  <link rel="stylesheet" href="css/skel-noscript.css" />
@@ -23,6 +25,8 @@
 	</noscript>
 	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+
+	<link rel="stylesheet" href="css/textfill-style.css" />
   </head>
   <body>
 
@@ -82,8 +86,15 @@
 
 		<!-- Social Icons -->
 		<ul class="icons">
-		  <li><a href="https://github.com/jquery-textfill/jquery-textfill/" class="fa fa-github solo" target="_blank"><span>Github</span></a></li>
-		  <li><a href="https://github.com/jquery-textfill/" class="fa fa-envelope solo" target="_blank"><span>Email</span></a></li>
+		  <li>
+			<a href="https://github.com/jquery-textfill/jquery-textfill/" class="fa fa-github solo" target="_blank">
+			  <span>Github</span>
+			</a>
+		  </li>
+		  <li><a href="https://github.com/jquery-textfill/" class="fa fa-envelope solo" target="_blank">
+			  <span>Homepage</span>
+			</a>
+		  </li>
 		</ul>
 
 	  </div>
@@ -95,23 +106,50 @@
 
 	  <!-- Intro -->
 	  <section id="top" class="one">
-		<div class="container">
+		<div id="subsection-one">
+		  <div class="container">
 
-		  <a href="http://ineedchemicalx.deviantart.com/art/Moonscape-381829905" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+			<div id="header-logo">
+			  <div id="header-logo-container">
 
-		  <header>
-			<h2 class="alt">This is <strong>Prologue</strong>. A <a href="http://html5up.net/license">free</a>, fully responsive<br />
-			  site template by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-		  </header>
+				<div id="header-logo-jquery">
+				  <span>JQUERY</span>
+				</div>
 
-		  <p>Ligula scelerisque justo sem accumsan diam quis. Vitae natoque dictum
-			etiam semper magnis enim feugiat convallis convallis egestas rhoncus ridiculus
-			in quis risus curabitur tempor. Orci penatibus quisque laoreet condimentum
-			sollicitudin accumsan elementum.</p>
+				<div id="header-logo-text">
+				  <span>TEXT</span>
+				</div>
 
-		  <footer>
-			<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
-		  </footer>
+				<div id="header-logo-fill">
+				  <span>FILL</span>
+				</div>
+
+			  </div>
+			</div>
+
+			<a href="https://github.com/jquery-textfill/jquery-textfill/archive/master.zip" class="push-button push-button-blue">
+			  download
+			</a>
+		  </div>
+		</div>
+
+		<div id="subsection-two">
+		  <div class="float-half">
+			<h2 class="alt">
+			  I resize the <strong>font size</strong><br />
+			  to fill a container.
+			</h2>
+		  </div>
+
+		  <div class="float-half">
+			<input type="text" id="example-one-input" value="Type something..." />
+
+			<div id="example-one-value">
+			  <span>
+				Type something...
+			  </span>
+			</div>
+		  </div>
 
 		</div>
 	  </section>
