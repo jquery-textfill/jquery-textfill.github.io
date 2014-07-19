@@ -1,0 +1,189 @@
+/**
+ * Styles specific for the jQuery TextFill containers
+ */
+
+/* * * * * * * * * * * * *
+ * Subsection One
+ */
+#subsection-one {
+	padding-top: 60px;
+	padding-bottom: 30px;
+	background: #E8EDEC url('images/overlay.png');
+
+	-webkit-box-shadow: inset 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    inset 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         inset 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+#header-logo {
+	width: 100%;
+	height: auto;
+	display: table
+}
+#header-logo-container {
+	width: 60%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+#header-logo-jquery {
+	width: 10%;
+	height: 25px;
+	margin-bottom: 5px;
+
+	background-color: #5E887C;
+	color: white;
+
+	/* centering text */
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+#header-logo-text {
+	width: 30%;
+	height: 60px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+
+	background-color: #CFA58E;
+	color: white;
+
+	/* centering text */
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+#header-logo-fill {
+	width: 60%;
+	height: 100px;
+	margin-left: 50px;
+
+	background-color: #CFCB8E;
+	color: white;
+
+	/* centering text */
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* * * * * * * * * * * * *
+ * Subsection Two
+ */
+#subsection-two {
+	padding-top: 4em;
+}
+
+.float-half {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+#example-one-input {
+	width: 90%;
+}
+#example-one-value {
+	width: 80%;
+	height: 100px;
+	margin: 10px auto;
+	background-color: rgb(240, 245, 243);
+
+	text-align: center;
+	padding: 10px 5px;
+}
+
+
+
+
+
+/* * * * * * * * * * * * *
+ * Awesome Buttons
+ *
+ * Modified from this button style:
+ * http://cssdeck.com/labs/push-the-buttons
+ */
+
+.push-button {
+	position        : relative;
+	width           : 220px;
+	height          : 45px;
+	text-align      : center;
+	color           : #FFF;
+	text-decoration : none;
+	line-height     : 43px;
+	display         : inline-block;
+	margin          : 30px;
+}
+.push-button:active {
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	                    0 -1px 0 rgba(255, 255, 255, .1) inset;
+	bottom: 5px;
+}
+
+.push-button-blue {
+	text-shadow:-1px -1px 0 #2C7982;
+	background: #3EACBA;
+	border: 1px solid #379AA4;
+
+	background-image:-webkit-linear-gradient(top, #48C6D4, #3EACBA);
+	background-image:-moz-linear-gradient(top, #48C6D4, #3EACBA);
+	background-image:-ms-linear-gradient(top, #48C6D4, #3EACBA);
+	background-image:-o-linear-gradient(top, #48C6D4, #3EACBA);
+	background-image:linear-gradient(top, #48C6D4, #3EACBA);
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	                    0 -1px 0 rgba(255, 255, 255, .1) inset,
+						0 -4px 0 #338A94,
+						0 4px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	                 0 -1px 0 rgba(255, 255, 255, .1) inset,
+					 0 -4px 0 #338A94,
+					 0 4px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	            0 -1px 0 rgba(255, 255, 255, .1) inset,
+				0 -4px 0 #338A94,
+				0 4px 2px rgba(0, 0, 0, .1);
+}
+
+.push-button-blue:hover {
+	background: #48C6D4;
+	background-image:-webkit-linear-gradient(top, #3EACBA, #48C6D4);
+	background-image:-moz-linear-gradient(top, #3EACBA, #48C6D4);
+	background-image:-ms-linear-gradient(top, #3EACBA, #48C6D4);
+	background-image:-o-linear-gradient(top, #3EACBA, #48C6D4);
+	background-image:linear-gradient(top, #3EACBA, #48C6D4);
+}
+
+
+
+
+
+
+
+
+
+/* the texts inside the ARTICLES */
+article {
+	margin-left: 2em;
+	background-color: #fff;
+}
+article pre {
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+.row p {
+	margin: 0;
+	font-size: 90%;
+	background-color: rgb(242, 242, 242)
+}
+
