@@ -6,15 +6,12 @@
 ($(function() {
 
 	// The logo, with three containers
-	$('#header-logo-jquery').textfill({
-		maxFontPixels: 100,
-		minFontPixels: 1
-	});
-	$('#header-logo-text').textfill({
-		maxFontPixels: 100
-	});
-	$('#header-logo-fill').textfill({
-		maxFontPixels: 100
+	$('#header-logo-jquery,#header-logo-text,#header-logo-fill').each(function() {
+		$(this).textfill({
+			maxFontPixels: 100,
+			minFontPixels: 1,
+			changeLineHeight: true
+		});
 	});
 
 	// First example - when the user types on the
@@ -24,7 +21,6 @@
 			'<span>' + $('#example-one-input').val() + '</span>'
 		);
 		$('#example-one-value').textfill({
-			debug: true,
 			maxFontPixels: 200
 		});
 	}
@@ -33,20 +29,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// Unrelated to the example
 
 	// Initializing Highlight.js
 	hljs.initHighlightingOnLoad();
