@@ -1,5 +1,6 @@
 /**
- * Styles specific for the jQuery TextFill containers
+ * Styles specific for the page, aside from
+ * the theme defaults.
  */
 
 /* * * * * * * * * * * * *
@@ -21,7 +22,7 @@
 	display: table
 }
 #header-logo-container {
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
 	margin-bottom: 10px;
 }
@@ -94,14 +95,12 @@
 
 
 
-
 /* * * * * * * * * * * * *
  * Awesome Buttons
  *
  * Modified from this button style:
  * http://cssdeck.com/labs/push-the-buttons
  */
-
 .push-button {
 	position        : relative;
 	width           : 220px;
@@ -114,7 +113,7 @@
 	margin          : 30px;
 }
 .push-button:active {
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	-webkit-box-shadow: 0  1px 0 rgba(255, 255, 255, .5) inset,
 	                    0 -1px 0 rgba(255, 255, 255, .1) inset;
 	bottom: 5px;
 }
@@ -147,8 +146,8 @@
 				0 -4px 0 #338A94,
 				0 4px 2px rgba(0, 0, 0, .1);
 }
-
 .push-button-blue:hover {
+	color: white;
 	background: #48C6D4;
 	background-image:-webkit-linear-gradient(top, #3EACBA, #48C6D4);
 	background-image:-moz-linear-gradient(top, #3EACBA, #48C6D4);
@@ -160,6 +159,62 @@
 
 
 
+.push-button-small {
+	position        : relative;
+	width           : 190px;
+	height          : 35px;
+	text-align      : center;
+	color           : #FFF;
+	text-decoration : none;
+	line-height     : 35px;
+	display         : inline-block;
+	margin          : 10px 30px;
+	font-size       : 80%;
+}
+.push-button-small:active {
+	-webkit-box-shadow: 0 1px  0 rgba(255, 255, 255, .5) inset,
+	                    0 -1px 0 rgba(255, 255, 255, .1) inset;
+	bottom: 5px;
+}
+
+.push-button-small-green {
+	text-shadow:-1px -1px 0 rgb(52, 130, 44);
+	background: rgb(45, 120, 31);
+	border: 1px solid rgb(73, 164, 55);
+
+	background-image:-webkit-linear-gradient(top, rgb(95, 212, 72), rgb(45, 120, 31));
+	background-image:-moz-linear-gradient(top, rgb(95, 212, 72), rgb(45, 120, 31));
+	background-image:-ms-linear-gradient(top, rgb(95, 212, 72), rgb(45, 120, 31));
+	background-image:-o-linear-gradient(top, rgb(95, 212, 72), rgb(45, 120, 31));
+	background-image:linear-gradient(top, rgb(95, 212, 72), rgb(45, 120, 31));
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	                    0 -1px 0 rgba(255, 255, 255, .1) inset,
+						0 -4px 0 rgb(64, 148, 51),
+						0 4px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	                 0 -1px 0 rgba(255, 255, 255, .1) inset,
+					 0 -4px 0 rgb(64, 148, 51),
+					 0 4px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+	            0 -1px 0 rgba(255, 255, 255, .1) inset,
+				0 -4px 0 rgb(64, 148, 51),
+				0 4px 2px rgba(0, 0, 0, .1);
+}
+
+.push-button-small-green:hover {
+	color: white;
+	background: rgb(95, 212, 72);
+	background-image:-webkit-linear-gradient(top, rgb(45, 120, 31), rgb(95, 212, 72));
+	background-image:-moz-linear-gradient(top, rgb(45, 120, 31), rgb(95, 212, 72));
+	background-image:-ms-linear-gradient(top, rgb(45, 120, 31), rgb(95, 212, 72));
+	background-image:-o-linear-gradient(top, rgb(45, 120, 31), rgb(95, 212, 72));
+	background-image:linear-gradient(top, rgb(45, 120, 31), rgb(95, 212, 72));
+}
 
 
 
