@@ -1,14 +1,12 @@
-﻿/**
+/**
  * @preserve  textfill
  * @name      jquery.textfill.js
- * @author    Russ Painter
+ * @author    Russ Painter (GeekyMonkey)
  * @author    Yu-Jie Lin
  * @author    Alexandre Dantas
- * @version   0.6.0
- * @date      2014-08-19
- * @copyright (c) 2014 Alexandre Dantas
- * @copyright (c) 2012-2013 Yu-Jie Lin
- * @copyright (c) 2009 Russ Painter
+ * @version   0.6.2
+ * @date      2018-02-24
+ * @copyright (c) 2009
  * @license   MIT License
  * @homepage  https://github.com/jquery-textfill/jquery-textfill
  * @example   http://jquery-textfill.github.io/jquery-textfill/index.html
@@ -30,7 +28,7 @@
 		// ______  _______ _______ _______ _     _        _______ _______
 		// |     \ |______ |______ |_____| |     | |         |    |______
 		// |_____/ |______ |       |     | |_____| |_____    |    ______|
-        //
+		//
 		// Merging user options with the default values
 
 		var defaults = {
@@ -40,12 +38,13 @@
 			innerTag         : 'span',
 			widthOnly        : false,
 			success          : null, // callback when a resizing is done
-			callback         : null, // callback when a resizing is done (deprecated, use success)
 			fail             : null, // callback when a resizing is failed
 			complete         : null, // callback when all is done
 			explicitWidth    : null,
 			explicitHeight   : null,
-			changeLineHeight : false
+			changeLineHeight : false,
+			truncateOnFail   : false,
+			allowOverflow    : false // If true, text will stay at minFontPixels but overflow container w/out failing 
 		};
 
 		var Opts = $.extend(defaults, options);
@@ -84,12 +83,12 @@
 
 				var marker = ' / ';
 
-				if (v1 > v2)
+				if (v1 > v2) {
 					marker = ' > ';
-
-				else if (v1 == v2)
+				}
+				else if (v1 == v2) {
 					marker = ' = ';
-
+				}
 				return marker;
 			}
 
@@ -149,20 +148,23 @@
 			//
 			//     http://stackoverflow.com/a/17433451/1094964
 			//
-
-			while (minFontPixels < (maxFontPixels - 1)) {
+			
+			while (minFontPixels < (Math.floor(maxFontPixels) - 1)) {
 
 				var fontSize = Math.floor((minFontPixels + maxFontPixels) / 2);
 				ourText.css('font-size', fontSize);
+				var curSize = func.call(ourText);
 
-				if (func.call(ourText) <= max) {
+				if (curSize <= max) {
 					minFontPixels = fontSize;
 
-					if (func.call(ourText) == max)
+					if (curSize == max) {
 						break;
+					}
 				}
-				else
+				else {
 					maxFontPixels = fontSize;
+				}
 
 				_debug_sizing(
 					prefix, ourText,
@@ -197,7 +199,30 @@
 
 			// Contains the child element we will resize.
 			// $(this) means the parent container
-			var ourText = $(Opts.innerTag + ':visible:first', this);
+			var ourText = $(Opts.innerTag + ':first', this);
+
+			_debug('[TextFill] Inner text: ' + ourText.text());
+			_debug('[TextFill] All options: ', Opts);
+			_debug('[TextFill] Maximum sizes: { ' +
+				   'Height: ' + maxHeight + 'px, ' +
+				   'Width: '  + maxWidth  + 'px' + ' }'
+				  );
+
+			if (!ourText.is(':visible')) {
+				// Failure callback
+				if (Opts.fail)
+					Opts.fail(this);
+
+				_debug(
+					'[TextFill] Failure { ' +
+					'Current Width: '  + ourText.width()  + ', ' +
+					'Maximum Width: '  + maxWidth         + ', ' +
+					'Current Height: ' + ourText.height() + ', ' +
+					'Maximum Height: ' + maxHeight        + ' }'
+				);
+
+				return;
+			}
 
 			// Will resize to this dimensions.
 			// Use explicit dimensions when specified
@@ -208,13 +233,6 @@
 
 			var lineHeight  = parseFloat(ourText.css('line-height')) / parseFloat(oldFontSize);
 
-			_debug('[TextFill] Inner text: ' + ourText.text());
-			_debug('[TextFill] All options: ', Opts);
-			_debug('[TextFill] Maximum sizes: { ' +
-				   'Height: ' + maxHeight + 'px, ' +
-				   'Width: '  + maxWidth  + 'px' + ' }'
-				  );
-
 			var minFontPixels = Opts.minFontPixels;
 
 			// Remember, if this `maxFontPixels` is negative,
@@ -224,20 +242,23 @@
 								 maxHeight :
 								 Opts.maxFontPixels);
 
-
 			// Let's start it all!
 
 			// 1. Calculate which `font-size` would
 			//    be best for the Height
 			var fontSizeHeight = undefined;
 
-			if (! Opts.widthOnly)
+			if (Opts.widthOnly) {
+				// We need to measure with nowrap otherwise wrapping occurs and the measurement is wrong
+      			ourText.css('white-space', 'nowrap' );
+			} else {
 				fontSizeHeight = _sizing(
 					'Height', ourText,
 					$.fn.height, maxHeight,
 					maxHeight, maxWidth,
 					minFontPixels, maxFontPixels
 				);
+			}
 
 			// 2. Calculate which `font-size` would
 			//    be best for the Width
@@ -254,26 +275,27 @@
 
 			if (Opts.widthOnly) {
 				ourText.css({
-					'font-size'  : fontSizeWidth,
-					'white-space': 'nowrap'
+					'font-size'  : fontSizeWidth
 				});
 
-				if (Opts.changeLineHeight)
+				if (Opts.changeLineHeight) {
 					ourText.parent().css(
 						'line-height',
 						(lineHeight * fontSizeWidth + 'px')
 					);
+				}
 			}
 			else {
 				var fontSizeFinal = Math.min(fontSizeHeight, fontSizeWidth);
 
 				ourText.css('font-size', fontSizeFinal);
 
-				if (Opts.changeLineHeight)
+				if (Opts.changeLineHeight) {
 					ourText.parent().css(
 						'line-height',
 						(lineHeight * fontSizeFinal) + 'px'
 					);
+				}
 			}
 
 			_debug(
@@ -283,15 +305,17 @@
 			);
 
 			// Oops, something wrong happened!
-			// We weren't supposed to exceed the original size
-			if ((ourText.width()  > maxWidth) ||
-				(ourText.height() > maxHeight && !Opts.widthOnly)) {
+			// If font-size increasing, we weren't supposed to exceed the original size 
+			// If font-size decreasing, we hit minFontPixels, and still won't fit 
+			if ((ourText.width()  > maxWidth && !Opts.allowOverflow) ||
+				(ourText.height() > maxHeight && !Opts.widthOnly && !Opts.allowOverflow)) { 
 
 				ourText.css('font-size', oldFontSize);
 
 				// Failure callback
-				if (Opts.fail)
+				if (Opts.fail) {
 					Opts.fail(this);
+				}
 
 				_debug(
 					'[TextFill] Failure { ' +
@@ -304,21 +328,21 @@
 			else if (Opts.success) {
 				Opts.success(this);
 			}
-			else if (Opts.callback) {
-				_warn('callback is deprecated, use success, instead');
-
-				// Success callback
-				Opts.callback(this);
-			}
 		});
 
 		// Complete callback
-		if (Opts.complete)
+		if (Opts.complete) {
 			Opts.complete(this);
+		}
 
 		_debug('[TextFill] End Debug');
 		return this;
 	};
 
-})(window.jQuery);
+})(function() {
+	if (typeof module !== 'undefined' && module.exports) {
+		return require('jquery');
+	}
+	return window.jQuery;
+}());
 
